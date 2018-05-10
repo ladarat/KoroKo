@@ -4,16 +4,32 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+project.ext {
+    buildToolsVersion = '27.0.3'
+    compileSdkVersion = 27
+    targetSdkVersion = 27
+    minSdkVersion = 19
+
+    versionName = '1.0'
+    versionCode = 1
+
+    supportLibrary = '27.1.1'
+    googlePlayServicesVersion = '15.0.1'
+}
+
 android {
-    compileSdkVersion 27
+
+    compileSdkVersion project.ext.compileSdkVersion
+
     defaultConfig {
-        applicationId "run.donguri.koro"
-        minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        applicationId "run.donguri.koroko"
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode project.ext.versionCode
+        versionName project.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +40,27 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "com.android.support:appcompat-v7:$supportLibrary"
+    implementation "com.android.support:animated-vector-drawable:$supportLibrary"
+    implementation "com.android.support:design:$supportLibrary"
+    implementation "com.android.support:support-v4:$supportLibrary"
+    implementation "com.android.support:support-media-compat:$supportLibrary"
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    implementation "com.google.android.gms:play-services-fitness:$googlePlayServicesVersion"
+    implementation "com.google.android.gms:play-services-auth:$googlePlayServicesVersion"
+
+    implementation 'androidx.core:core-ktx:0.3'
+
+    implementation 'com.karumi:dexter:4.2.0'
+
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
