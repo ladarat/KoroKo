@@ -1,4 +1,4 @@
-package run.donguri.koro
+package run.donguri.koroko
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

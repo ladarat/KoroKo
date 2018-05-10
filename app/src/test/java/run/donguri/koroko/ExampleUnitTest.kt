@@ -1,4 +1,4 @@
-package run.donguri.koro
+package run.donguri.koroko
 
 import org.junit.Test
 
